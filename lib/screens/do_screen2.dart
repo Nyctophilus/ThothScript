@@ -8,30 +8,19 @@ class DoScreen2 extends StatefulWidget {
 }
 
 class _DoScreen2State extends State<DoScreen2> {
-  List<TextEditingController> textcontroller = [];
-  TextEditingController Tcon = TextEditingController();
-  int index = 0;
+  TextEditingController tCon = TextEditingController();
+  List<Text> listText = [];
 
-  Widget _list(context, index) {
-    if (index > 0) {
-      return ListView.builder(
-        itemCount: index,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            title: Center(
-              child: Text(
-                Tcon.text,
-              ),
-            ),
-          );
-        },
+  Widget _list() {
+    if (listText.isNotEmpty) {
+      return ListView(
+        shrinkWrap: true,
+        children: listText,
       );
     } else {
       return ListView(
         shrinkWrap: true,
-        children: const <Widget>[
-          Text("Add task..."),
-        ],
+        children: const [Text("Add Task...")],
       );
     }
   }
@@ -77,7 +66,7 @@ class _DoScreen2State extends State<DoScreen2> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: _list(context, index),
+              child: _list(),
             ),
             const SizedBox(
               height: 30,
@@ -91,14 +80,7 @@ class _DoScreen2State extends State<DoScreen2> {
                 ),
                 child: TextField(
                   textAlign: TextAlign.center,
-                  onSubmitted: (value) {
-                    setState(() {
-                      Tcon.text = value;
-                      index++;
-
-                      print(index);
-                    });
-                  },
+                  controller: tCon,
                 ),
               ),
             ),
@@ -122,7 +104,12 @@ class _DoScreen2State extends State<DoScreen2> {
                           leading: Icon(Icons.add_task),
                           title: Text('Add Task'),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          setState(() {
+                            listText.add(Text(tCon.text));
+                            tCon.clear();
+                          });
+                        },
                       ),
                       const ListTile(
                         leading: Icon(Icons.share),

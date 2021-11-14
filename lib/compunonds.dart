@@ -1,12 +1,10 @@
-// ignore_for_file: non_constant_identifier_names, avoid_print, curly_braces_in_flow_control_structures
-
 import 'package:flutter/material.dart';
 import 'package:thoth_script/screens/decide_screen.dart';
 import 'package:thoth_script/screens/delegate_screen.dart';
 import 'package:thoth_script/screens/delete_screen.dart';
 import 'package:thoth_script/screens/do_screen2.dart';
 
-Widget VerticalText1() => RotatedBox(
+Widget verticalText1() => RotatedBox(
       quarterTurns: 1,
       child: RichText(
         text: const TextSpan(
@@ -20,7 +18,7 @@ Widget VerticalText1() => RotatedBox(
         ),
       ),
     );
-Widget VerticalText2() => RotatedBox(
+Widget verticalText2() => RotatedBox(
       quarterTurns: 1,
       child: RichText(
         text: const TextSpan(
@@ -35,7 +33,7 @@ Widget VerticalText2() => RotatedBox(
       ),
     );
 
-Widget DoBuilder(context) => InkWell(
+Widget doBuilder(context) => InkWell(
       child: Container(
         color: Colors.red,
         child: Column(
@@ -54,11 +52,11 @@ Widget DoBuilder(context) => InkWell(
       ),
       onTap: () {
         print('navigate to DoScreen');
-        MyNavigator(context, 0);
+        myNavigator(context, 0);
       },
     );
 
-Widget DecideBuilder(context) => InkWell(
+Widget decideBuilder(context) => InkWell(
       child: Container(
         color: Colors.blue,
         child: Column(
@@ -77,11 +75,11 @@ Widget DecideBuilder(context) => InkWell(
       ),
       onTap: () {
         print('navigate to DecideScreen');
-        MyNavigator(context, 1);
+        myNavigator(context, 1);
       },
     );
 
-Widget DelegateBuilder(context) => InkWell(
+Widget delegateBuilder(context) => InkWell(
       child: Container(
         color: Colors.green,
         child: Column(
@@ -100,11 +98,11 @@ Widget DelegateBuilder(context) => InkWell(
       ),
       onTap: () {
         print('navigate to DelegateScreen');
-        MyNavigator(context, 2);
+        myNavigator(context, 2);
       },
     );
 
-Widget DeleteBuilder(context) => InkWell(
+Widget deleteBuilder(context) => InkWell(
       child: Container(
         color: Colors.grey,
         child: Column(
@@ -123,7 +121,7 @@ Widget DeleteBuilder(context) => InkWell(
       ),
       onTap: () {
         print('navigate to DeleteScreen');
-        MyNavigator(context, 3);
+        myNavigator(context, 3);
       },
     );
 
@@ -140,42 +138,42 @@ Widget myDivider() => Padding(
 
 Widget girdviewviewer(int index, context) {
   if (index == 0) {
-    return DoBuilder(context);
+    return doBuilder(context);
   }
-  if (index == 1) return DecideBuilder(context);
-  if (index == 2)
-    return DelegateBuilder(context);
-  else
-    return DeleteBuilder(context);
+  if (index == 1) return decideBuilder(context);
+  if (index == 2) {
+    return delegateBuilder(context);
+  } else {
+    return deleteBuilder(context);
+  }
 }
 
-Widget? MyNavigator(context, int index) {
+Widget? myNavigator(context, int index) {
   if (index == 0) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DoScreen2()),
+      MaterialPageRoute(builder: (context) => const DoScreen2()),
     );
   } else if (index == 1) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DecideScreen()),
+      MaterialPageRoute(builder: (context) => const DecideScreen()),
     );
-  } else if (index == 2)
+  } else if (index == 2) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DelegateScreen()),
+      MaterialPageRoute(builder: (context) => const DelegateScreen()),
     );
-  else
+  } else {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DeleteScreen()),
+      MaterialPageRoute(builder: (context) => const DeleteScreen()),
     );
+  }
 }
 
-Widget form_maker({
-  required TextEditingController textcontroller,
-  VoidCallback? onChange(value)?,
-}) {
+Widget formMaker(
+    {required TextEditingController textcontroller, required onChange}) {
   return TextFormField(
     controller: textcontroller,
     keyboardType: TextInputType.text,

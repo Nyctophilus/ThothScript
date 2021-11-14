@@ -23,6 +23,6 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         title: 'Thoth Script',
-        home: ThothScript());
+        home: const ThothScript());
   }
 }

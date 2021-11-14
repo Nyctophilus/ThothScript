@@ -51,7 +51,7 @@ class _ThothScriptState extends State<ThothScript> {
         showSelectedLabels: true,
         onTap: (int index) {
           onTapHandler(index);
-          MyNavigator(context, index);
+          myNavigator(context, index);
         },
         selectedItemColor: Colors.green[300],
         items: const <BottomNavigationBarItem>[
@@ -75,7 +75,7 @@ class _ThothScriptState extends State<ThothScript> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DeleteScreen()),
+            MaterialPageRoute(builder: (context) => const DeleteScreen()),
           );
         },
         child: const Icon(Icons.delete),

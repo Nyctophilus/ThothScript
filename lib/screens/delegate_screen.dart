@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DelegateScreen extends StatelessWidget {
-  DelegateScreen({Key? key}) : super(key: key);
+  const DelegateScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
