@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:thoth_script/screens/decide_screen.dart';
 import 'package:thoth_script/screens/delegate_screen.dart';
 import 'package:thoth_script/screens/delete_screen.dart';
-import 'package:thoth_script/screens/do_screen2.dart';
+import 'package:thoth_script/screens/do_screen.dart';
 
 Widget verticalText1() => RotatedBox(
       quarterTurns: 1,
@@ -152,22 +152,22 @@ Widget? myNavigator(context, int index) {
   if (index == 0) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const DoScreen2()),
+      MaterialPageRoute(builder: (context) => DoScreen()),
     );
   } else if (index == 1) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const DecideScreen()),
+      MaterialPageRoute(builder: (context) => DecideScreen()),
     );
   } else if (index == 2) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const DelegateScreen()),
+      MaterialPageRoute(builder: (context) => DelegateScreen()),
     );
   } else {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const DeleteScreen()),
+      MaterialPageRoute(builder: (context) => DeleteScreen()),
     );
   }
 }

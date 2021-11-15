@@ -1,9 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:thoth_script/the_matrix.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+const TextStyle kStyle = TextStyle(
+  color: Colors.blue,
+  fontWeight: FontWeight.w900,
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -16,9 +22,12 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Georgia',
           primarySwatch: Colors.red,
           textTheme: const TextTheme(
-            headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-            headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-            bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+            bodyText1: TextStyle(fontSize: 30),
+            bodyText2: TextStyle(fontSize: 3),
+          ).apply(
+            fontSizeDelta: 30,
+            bodyColor: Colors.black,
+            displayColor: Colors.blue,
           ),
         ),
         debugShowCheckedModeBanner: false,
